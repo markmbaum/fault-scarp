@@ -1,0 +1,6 @@
+function SetKappa
+
+data = get(gcf,'Userdata');
+num = get(findobj(gcf,'Tag','Kappa'),'String');
+data.kappa = str2double(num);
+set(gcf,'UserData',data);
