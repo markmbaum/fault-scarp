@@ -1,4 +1,4 @@
 fault-scarp timekeeping
 
 Sep 20, 12-13, communicated with LS about project details and such before starting
-Sep 21, 745-8 10-1030, coded initial GUI setup
+Sep 21, 745-9 10-1030, coded initial GUI setup
