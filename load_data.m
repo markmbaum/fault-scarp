@@ -3,10 +3,12 @@ function load_data(hObject, ~)
 %   Detailed explanation goes here
 
 handles = guihandles(hObject);
+data = guidata(hObject);
 
 %get file name
-%fn = uigetfile;
-fn = 'fakedata.txt';
+fn = uigetfile;
+
+data.input_filename = fn;
 
 %attempt to read the file
 input_data = dlmread(fn);
@@ -18,7 +20,11 @@ y = input_data(:,2);
 %update table
 handles.control_table.Data = [x y];
 
+%clear axes
+clear_observations(handles);
 %update plots of observations
 plot_observations(x, y, handles);
+
+guidata(hObject, data);
 
 end

@@ -2,5 +2,5 @@ fault-scarp timekeeping
 
 Sep 20, 12-13, communicated with LS about project details and such before starting
 Sep 21, 745-8 10-1030, coded initial GUI setup
-Sep 22, 8-10, continued GUI setup and started callback functions
-Sep 23, 550- ,
+Sep 22, 8-10, continued GUI setup and started callback functions 
+Wknd of Sep 23, 0-10, still mostly layout

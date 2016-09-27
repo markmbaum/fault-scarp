@@ -12,9 +12,8 @@ legend({'Observed Scarp Profile'},...
 %remove IC axis text
 t = get(handles.IC_ax, 'Children');
 for i = 1:length(t)
-    disp(t(i))
     if(strcmp(t(i).Tag, 'IC_ax_text'))
-        t(i).Visible = 'off'
+        t(i).Visible = 'off';
     end
 end
 
