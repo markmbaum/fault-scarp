@@ -16,7 +16,9 @@ end
 
 %replot
 table_data = handles.control_table.Data;
-clear_observations(handles);
-plot_observations(table_data(:,1), table_data(:,2), handles);
+clear_axes(handles);
+data = init_axes(table_data(:,1), table_data(:,2), handles, data);
+
+guidata(hObject, data);
 
 end

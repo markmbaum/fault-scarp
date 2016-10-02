@@ -5,4 +5,4 @@ Sep 21, 745-8 10-1030, coded initial GUI setup
 Sep 22, 8-10, continued GUI setup and started callback functions
 Wknd of Sep 23, 0-10, still mostly layout
 Sep 26, 8-10, implemented editable table, saving, and some axes rescaling checkboxes
-Sep 27, 9-10, 
+Sep 27, 9-10, split tab assembly into separate files/functions, place the 'RUN MODEL' button

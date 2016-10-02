@@ -1,4 +1,4 @@
-function clear_observations(handles)
+function clear_axes(handles)
 
 cla(handles.control_ax);
 cla(handles.IC_ax);

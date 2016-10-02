@@ -6,9 +6,12 @@ handles = guihandles(hObject);
 data = guidata(hObject);
 
 %get file name
-fn = uigetfile({'*.*'});
+%fn = uigetfile({'*.*'});
+fn = 'fakedata.txt';
 
-if(fn ~= 0)
+%if filename is successfully chose, read data in
+if(~strcmp(fn, ''))
+
     data.input_filename = fn;
 
     %attempt to read the file
@@ -18,14 +21,25 @@ if(fn ~= 0)
     x = input_data(:,1);
     y = input_data(:,2);
 
+    %sort by x
+    [x, idx] = sort(x);
+    y = y(idx);
+
     %update table
     handles.control_table.Data = [x y];
 
     %clear axes
-    clear_observations(handles);
-    %update plots of observations
-    plot_observations(x, y, handles);
+    clear_axes(handles);
 
+    %update axes
+    data = init_control_ax(x, y, handles, data);
+    data = init_IC_ax(x, y, handles, data);
+    data = init_results_ax(x, y, handles, data);
+
+    %make run button available
+    handles.run_button.ForegroundColor = [0 0 0];
+
+    %store variables in GUI structure
     guidata(hObject, data);
 end
 
