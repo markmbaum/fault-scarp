@@ -12,14 +12,15 @@ if(sz(4) < fig_pos(4))
     fig_pos(4) = sz(4);
 end
 %open figure
-fig = figure('name', 'Fault Scarp Age Estimation with Diffusion!',...
-        'NumberTitle', 'off',... %get rid of the 'Figure 1:'
-        'MenuBar', 'none',... %remove 'File', 'Edit', etc. menu
-        'ToolBar', 'none',... %remove icon based lower toolbar
-        'Resize', 'off',...
-        'Position', fig_pos,... %figure size in pixels
-        'DeleteFcn', @DeleteFcn,... %function called upon figure close
-        'Tag', 'main_window');
+fig = figure('name',...
+    'Fault Scarp Age Estimation with the Diffusion-Heat-Erosion Equation!',...
+    'NumberTitle', 'off',... %get rid of the 'Figure 1:'
+    'MenuBar', 'none',... %remove 'File', 'Edit', etc. menu
+    'ToolBar', 'none',... %remove icon based lower toolbar
+    'Resize', 'off',...
+    'Position', fig_pos,... %figure size in pixels
+    'DeleteFcn', @DeleteFcn,... %function called upon figure close
+    'Tag', 'main_window');
 
 %create tabs/panels in the GUI
 tabgroup = uitabgroup('Parent', fig);
@@ -33,14 +34,17 @@ init_results_tab(tabgroup);
 data = guidata(fig);
 data.fig = fig;
 data.input_filename = '';
-data.inactive_IC_color = [0, 0.4470, 0.7410];
-data.active_IC_color = [0.8500, 0.3250,0.0980];
+data.inactive_IC_color = 'b';
+data.active_IC_color = 'r';
 data.IC_point_size = 45;
 data.table_edited = false;
 data.drag_pts = cell(1,4);
 data.last_active_pt = 0;
 data.drag_pt_lines = cell(1,3);
 data.angles = cell(1,3);
+data.N_x_lower_limit = 50;
+data.N_t_lower_limit = 100;
+data.target_lambda = 0.1;
 
 guidata(fig, data);
 
