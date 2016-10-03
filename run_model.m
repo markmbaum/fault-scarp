@@ -66,10 +66,6 @@ if(~error_flag)
   handles.delta_t.String = [num2str(dt), ' years'];
   handles.N_t.String = [num2str(N_t), ' points'];
 
-  %calculate initial slopes on the edges
-  s_0 = (y_drag(2) - y_drag(1))/(x_drag(2) - x_drag(1));
-  s_L = (y_drag(end-1) - y_drag(end))/(x_drag(end-1) - x_drag(end));
-
   %get initial y values by linear interpolation
   y_IC = interp1(x_drag, y_drag, x);
 
@@ -79,11 +75,15 @@ if(~error_flag)
   t_hat = t*(kappa/L^2);
   dt_hat = dt*(kappa/L^2);
 
+  %calculate initial dimensionless slopes on the edges
+  s_0 = (y_drag(2) - y_drag(1))/((x_drag(2) - x_drag(1))/L);
+  s_L = (y_drag(end) - y_drag(end-1))/((x_drag(end) - x_drag(end-1))/L);
+
+
   %run the solver
   y = Crank_Nicolson_solver(dx_hat, y_IC, dt_hat, N_t, s_0, s_L);
 
   %plot results for inspection
-  idx = zeros(1,10);
   figure;
   hold on;
   plot(x, y(1,:));
