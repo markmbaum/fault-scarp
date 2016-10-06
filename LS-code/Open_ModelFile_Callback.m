@@ -1,1 +1,0 @@
-function Open_ModelFile_Callbackdir=cd;data=get(gcf,'UserData');[filename, pathname]=uigetfile('*.mat','Model File');if filename~=0	file=strcat(pathname,filename);	load(file);	set(gcf,'UserData',data);end	cd(dir);

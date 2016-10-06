@@ -1,1 +1,0 @@
-function Save_ModelFile_Callbackdata=get(gcf,'UserData');[filename, pathname]=uiputfile('*.mat','Save As *.mat');if filename ~=0 %as long as user provided a file name	save(filename, 'data')else    % eend

@@ -3,8 +3,25 @@ function run_model(hObject, ~)
 handles = guihandles(hObject);
 data = guidata(hObject);
 
-%get proposed solution times and initialize error_flag
-[solution_times, total_time, error_flag] = get_solution_times(handles);
+error_flag = false;
+
+%check for data
+if(isempty(handles.control_table.Data))
+    error_flag = true;
+    errordlg('No data are loaded. Load data.', 'Missing Data');
+end
+
+if(~error_flag)
+    %get proposed solution times and initialize error_flag
+    [t_sol, error_flag] = get_solution_times(handles);
+end
+
+if(~error_flag)
+    if(any(diff(t_sol) <= 0))
+        error_flag = true;
+        errordlg('Solution times must be uniformly increasing.',...
+                  'Solution Times Error');
+end
 
 %get drag point coordinates and check them for error
 if(~error_flag)
@@ -40,56 +57,18 @@ end
 %run solver
 if(~error_flag)
 
-  %automatically determine spatial and temporal resolution needed to have
-  % stability criterion lambda <= data.target_lambda
-  target_lambda = data.target_lambda;
-  N_x = data.N_x_lower_limit;
-  L = max(x_drag);
-  N_t = ceil((total_time/L)*(N_x - 1)^2 + 1);
-  %increase resolutions if N_t is fairly small, until they reach acceptable
-  % levels
-  while(N_t < data.N_t_lower_limit)
-    N_x = N_x + 1;
-    N_t = ceil((total_time/L)*(N_x - 1)^2 + 1);
-  end
-
-  %get dimensional x values and resolution
-  x = linspace(min(x_drag), L, N_x);
-  dx = x(2) - x(1);
-  %get dimensional t values
-  t = linspace(0, total_time, N_t);
-  dt = t(2) - t(1);
-
-  %update display of numerical parameters
-  handles.delta_x.String = [num2str(dx), ' meters'];
-  handles.N_x.String = [num2str(N_x), ' points'];
-  handles.delta_t.String = [num2str(dt), ' years'];
-  handles.N_t.String = [num2str(N_t), ' points'];
-
-  %get initial y values by linear interpolation
-  y_IC = interp1(x_drag, y_drag, x);
-
-  %nondimensionalize spatial and temporal vectors and resolutions
-  x_hat = x/L;
-  dx_hat = dx/L;
-  t_hat = t*(kappa/L^2);
-  dt_hat = dt*(kappa/L^2);
-
   %calculate initial dimensionless slopes on the edges
-  s_0 = (y_drag(2) - y_drag(1))/((x_drag(2) - x_drag(1))/L);
-  s_L = (y_drag(end) - y_drag(end-1))/((x_drag(end) - x_drag(end-1))/L);
+  m_0 = (y_drag(2) - y_drag(1))/(x_drag(2) - x_drag(1));
+  m_L = (y_drag(end) - y_drag(end-1))/(x_drag(end) - x_drag(end-1));
 
+  %set spatial points for solution
+  x_sol = linspace(min(x_drag), max(x_drag), data.N_x_solution)
 
-  %run the solver
-  y = Crank_Nicolson_solver(dx_hat, y_IC, dt_hat, N_t, s_0, s_L);
+  %get solutions
+  sol = solve_diffusion_equation(x_drag, y_drag, x_sol, t_sol, kappa, m_0, m_L);
 
-  %plot results for inspection
   figure;
-  hold on;
-  plot(x, y(1,:));
-  for i = 1:10
-    plot(x, y(round(i*N_t/10),:));
-  end
+  plot(sol');
 
 
 end

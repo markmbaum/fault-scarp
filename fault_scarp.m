@@ -42,9 +42,7 @@ data.drag_pts = cell(1,4);
 data.last_active_pt = 0;
 data.drag_pt_lines = cell(1,3);
 data.angles = cell(1,3);
-data.N_x_lower_limit = 100;
-data.N_t_lower_limit = 100;
-data.target_lambda = 0.1;
+data.N_x_solution = 15;
 
 guidata(fig, data);
 
