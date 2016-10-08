@@ -62,14 +62,10 @@ if(~error_flag)
   m_L = (y_drag(end) - y_drag(end-1))/(x_drag(end) - x_drag(end-1));
 
   %set spatial points for solution
-  x_sol = linspace(min(x_drag), max(x_drag), data.N_x_solution)
+  x_sol = linspace(min(x_drag), max(x_drag), data.N_x_solution);
 
   %get solutions
   sol = solve_diffusion_equation(x_drag, y_drag, x_sol, t_sol, kappa, m_0, m_L);
-
-  figure;
-  plot(sol');
-
 
 end
 

@@ -3,6 +3,8 @@ function data = init_IC_ax(x, y, handles, data)
 %plot observations in IC axis
 axes(handles.IC_ax);
 h1 = plot(x, y, 'ko', 'Tag', 'observations');
+%set margins
+ax_margins(handles.IC_ax, x, y);
 
 %initialize the IC draggables
 L = length(x);
@@ -26,5 +28,8 @@ legend([h1, data.drag_pts{1}],...
 
 %show the segment angles
 data = display_IC_angles(handles, data);
+
+%change x axis color
+handles.IC_ax.XColor = data.inactive_IC_color;
 
 end

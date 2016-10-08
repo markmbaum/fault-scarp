@@ -36,13 +36,13 @@ data.fig = fig;
 data.input_filename = '';
 data.inactive_IC_color = 'b';
 data.active_IC_color = 'r';
-data.IC_point_size = 45;
+data.IC_point_size = 50;
 data.table_edited = false;
 data.drag_pts = cell(1,4);
 data.last_active_pt = 0;
 data.drag_pt_lines = cell(1,3);
 data.angles = cell(1,3);
-data.N_x_solution = 15;
+data.N_x_solution = 250;
 
 guidata(fig, data);
 

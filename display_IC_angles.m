@@ -10,6 +10,9 @@ end
 %get drag point coordinates
 [x, y] = get_drag_pt_coords(data);
 
+%set x tick locations
+handles.IC_ax.XTick = sort(x);
+
 %get y location
 yloc = max(handles.IC_ax.YLim);
 
@@ -24,7 +27,8 @@ for i = 1:length(x)-1
             [num2str(theta), '^{\circ}'],...
             'VerticalAlignment', 'bottom',...
             'HorizontalAlignment', 'center',...
-            'Fontsize', 12);
+            'Color', data.inactive_IC_color,...
+            'Fontsize', 14);
 end
 
 end
