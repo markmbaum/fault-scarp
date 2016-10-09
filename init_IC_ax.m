@@ -30,6 +30,6 @@ legend([h1, data.drag_pts{1}],...
 data = display_IC_angles(handles, data);
 
 %change x axis color
-handles.IC_ax.XColor = data.inactive_IC_color;
+%handles.IC_ax.XColor = data.inactive_IC_color;
 
 end

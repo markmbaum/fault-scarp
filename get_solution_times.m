@@ -18,10 +18,10 @@ if(isempty(T))
       'That''s the whole point!'},...
       'Solution Times Error')
 
-elseif(length(T) < 3)
+elseif(length(T) < 2)
     error_flag = true;
     errordlg(...
-      'You must enter at least 3 solution times.', 'Solution Times Error');
+      'You must enter at least 2 solution times.', 'Solution Times Error');
 
 elseif(any(T <= 0))
     error_flat = true;

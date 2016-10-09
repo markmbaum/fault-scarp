@@ -24,7 +24,7 @@ if(~isempty(s) && isnan(str2double(s)))
         fifteen;
     elseif(strcmp(s, 'xpbombs'))
         xpbombs;
-    elseif(strcmp(s, 'heart'))
+    elseif(strcmp(s, 'heart') || strcmp(s, 'love'))
         x=[-2:.001:2];
         y=(sqrt(cos(x)).*cos(200*x)+sqrt(abs(x))-0.7).*(4-x.*x).^0.01;
         figure;
@@ -41,10 +41,11 @@ if(~isempty(s) && isnan(str2double(s)))
         img = imread('img2.jpg', 'jpg');
         image(img);
         axis equal;
+    else
+        errordlg('Input value must be a number.', 'Input Error');
     end
 
     hObject.BackgroundColor = 'r';
-    errordlg('Input value must be a number.', 'Input Error')
     hObject.BackgroundColor = [0.94 0.94 0.94];
     hObject.String = '';
 end

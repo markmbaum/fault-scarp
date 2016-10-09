@@ -6,8 +6,8 @@ handles = guihandles(hObject);
 data = guidata(hObject);
 
 %get file name
-%fn = uigetfile({'*.*'});
-fn = 'fakedata.txt';
+fn = uigetfile({'*.*'});
+%fn = 'fakedata.txt';
 
 %if filename is successfully chose, read data in
 if(~strcmp(fn, ''))
@@ -34,7 +34,6 @@ if(~strcmp(fn, ''))
     %update axes
     data = init_control_ax(x, y, handles, data);
     data = init_IC_ax(x, y, handles, data);
-    data = init_results_ax(x, y, handles, data);
 
     %make run button available
     handles.run_button.ForegroundColor = [0 0 0];

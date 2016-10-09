@@ -11,7 +11,8 @@ end
 [x, y] = get_drag_pt_coords(data);
 
 %set x tick locations
-handles.IC_ax.XTick = sort(x);
+handles.IC_ax.XTick = sort(unique(x));
+handles.IC_ax.YTick = sort(unique(y));
 
 %get y location
 yloc = max(handles.IC_ax.YLim);
