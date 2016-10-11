@@ -10,7 +10,7 @@ fn = uigetfile({'*.*'});
 %fn = 'fakedata.txt';
 
 %if filename is successfully chose, read data in
-if(~strcmp(fn, ''))
+if(fn)
 
     data.input_filename = fn;
 

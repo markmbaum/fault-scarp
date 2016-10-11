@@ -44,6 +44,9 @@ else
             %store data
             guidata(hObject, data);
         end
+    else
+        errordlg('Select an IC point (click on it) before deleting a segment.',...
+                  'No IC Point Selected');
     end
 end
 

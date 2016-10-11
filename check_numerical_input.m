@@ -1,6 +1,6 @@
 function check_numerical_input(hObject, ~)
 
-s = hObject.String;
+s = lower(hObject.String);
 
 if(~isempty(s) && isnan(str2double(s)))
 
@@ -33,13 +33,13 @@ if(~isempty(s) && isnan(str2double(s)))
         life;
     elseif(strcmp(s, 'hanlon'))
         figure;
-        img = imread('img1.jpg', 'jpg');
-        image(img);
+        img = load('i1.mat');
+        image(img.i);
         axis equal;
     elseif(strcmp(s, 'dade'))
         figure;
-        img = imread('img2.jpg', 'jpg');
-        image(img);
+        img = load('i2.mat');
+        image(img.i);
         axis equal;
     else
         errordlg('Input value must be a number.', 'Input Error');

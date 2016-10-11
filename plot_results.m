@@ -14,7 +14,7 @@ plot(x_obs, y_obs, 'ko');
 
 %plot IC
 [x_drag, y_drag] = get_drag_pt_coords(data);
-plot(x_drag, y_drag, 'LineStyle', '--', 'Color', data.inactive_IC_color);
+plot(x_drag, y_drag, '--', 'Color', [0.5 0.5 0.5], 'Linewidth', .25);
 
 %plot results/solutions
 plot(x_sol, sol');
@@ -33,13 +33,24 @@ ax_margins(handles.results_ax, x_obs, y_obs);
 
 %annotate with RMSE info
 r = max(y_obs) - min(y_obs);
+rmse = zeros(1,length(leg) - 2);
 [hu, hd] = get_rmse_annotation_handles(handles);
+for i = 1:length(hu)
+  hu{i}.Color = 'k';
+  hu{i}.EdgeColor = 'none';
+  hd{i}.Color = 'k';
+  hd{i}.EdgeColor = 'none';
+end
 for i = 3:length(leg)
     hu{i-2}.String = leg{i};
     %calculate rmse
     y_sol = interp1(x_sol, sol(i-2,:), x_obs);
-    rmse = 100*sqrt(mean((y_obs - y_sol).^2))/r;
-    hd{i-2}.String = ['RMSE = ', num2str(round(rmse, 3, 'significant')), ' \%'];
+    rmse(i-2) = 100*sqrt(mean((y_obs - y_sol).^2))/r;
+    hd{i-2}.String = ['RMSE = ',...
+                     num2str(round(rmse(i-2), 3, 'significant')), ' \%'];
 end
+[~, idx] = min(rmse);
+hd{idx}.Color = data.min_rmse_color;
+hd{idx}.EdgeColor = data.min_rmse_color;
 
 end

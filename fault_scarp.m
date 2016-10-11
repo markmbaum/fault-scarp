@@ -43,7 +43,7 @@ data.last_active_pt = 0;
 data.drag_pt_lines = cell(1,3);
 data.angles = cell(1,3);
 data.N_x_solution = 250;
-data.rmse = {};
+data.min_rmse_color = [0 0.5 0];
 
 guidata(fig, data);
 

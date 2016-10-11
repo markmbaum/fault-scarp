@@ -12,8 +12,9 @@ xmin = min(x); xmax = max(x);
 xrange = xmax - xmin;
 
 %generate coordinates for 4 draggable points
-x_drag = [x(1), x(1) + xrange/3, x(L) - xrange/3, x(L)];
-y_drag = [y(1), y(1), y(L), y(L)];
+xmin = min(x); xmax = max(x); ymin = min(y); ymax = max(y);
+x_drag = [xmin, xmin + xrange/3, xmax - xrange/3, xmax];
+y_drag = [ymin, ymin, ymax, ymax];
 
 %plot points, plot connecting lines, and set last_active_pt to zero
 data = plot_IC_draggables(x_drag, y_drag, handles, data);

@@ -67,5 +67,8 @@ else
 
         %store data
         guidata(hObject, data);
+    else
+        errordlg('Select an IC point (click on it) before adding a segment.',...
+                  'No IC Point Selected');
     end
 end
