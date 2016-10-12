@@ -22,14 +22,6 @@ fig = figure('name',...
     'DeleteFcn', @close_gui,... %function called upon figure close
     'Tag', 'main_window');
 
-%create tabs/panels in the GUI
-tabgroup = uitabgroup('Parent', fig, 'Tag', 'tabgroup');
-
-%place the ui objects in each tab
-init_control_tab(tabgroup);
-init_IC_tab(tabgroup);
-init_results_tab(tabgroup);
-
 %init guidata
 data = guidata(fig);
 data.fig = fig;
@@ -44,6 +36,14 @@ data.drag_pt_lines = cell(1,3);
 data.angles = cell(1,3);
 data.N_x_solution = 250;
 data.min_rmse_color = [0 0.5 0];
+
+%create tabs/panels in the GUI
+tabgroup = uitabgroup('Parent', fig, 'Tag', 'tabgroup');
+
+%place the ui objects in each tab
+init_control_tab(tabgroup);
+init_IC_tab(tabgroup);
+init_results_tab(tabgroup);
 
 guidata(fig, data);
 

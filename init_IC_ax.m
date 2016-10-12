@@ -15,6 +15,9 @@ xrange = xmax - xmin;
 xmin = min(x); xmax = max(x); ymin = min(y); ymax = max(y);
 x_drag = [xmin, xmin + xrange/3, xmax - xrange/3, xmax];
 y_drag = [ymin, ymin, ymax, ymax];
+if(y(1) > y(end))
+    y_drag = fliplr(y_drag);
+end
 
 %plot points, plot connecting lines, and set last_active_pt to zero
 data = plot_IC_draggables(x_drag, y_drag, handles, data);
