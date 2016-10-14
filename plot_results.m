@@ -53,4 +53,6 @@ end
 hd{idx}.Color = data.min_rmse_color;
 hd{idx}.EdgeColor = data.min_rmse_color;
 
+data.RMSE = rmse;
+
 end

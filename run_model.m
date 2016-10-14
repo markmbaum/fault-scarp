@@ -79,7 +79,11 @@ if(~error_flag)
 
   %switch to results tab
   handles.tabgroup.SelectedTab = handles.results_tab;
-  
+
+  %store solutions
+  data.solutions = sol';
+  data.solution_x = x_sol;
+
   %store data
   guidata(hObject, data);
 

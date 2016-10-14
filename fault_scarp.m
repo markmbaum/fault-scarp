@@ -25,7 +25,7 @@ fig = figure('name',...
 %init guidata
 data = guidata(fig);
 data.fig = fig;
-data.input_filename = '';
+data.input_path = '';
 data.inactive_IC_color = [0, 0.4470, 0.7410];
 data.active_IC_color = [0.8500, 0.3250,0.0980];
 data.IC_point_size = 50;
@@ -36,6 +36,9 @@ data.drag_pt_lines = cell(1,3);
 data.angles = cell(1,3);
 data.N_x_solution = 250;
 data.min_rmse_color = [0 0.5 0];
+data.solutions = [];
+data.solution_x = [];
+data.RMSE = [];
 
 %create tabs/panels in the GUI
 tabgroup = uitabgroup('Parent', fig, 'Tag', 'tabgroup');

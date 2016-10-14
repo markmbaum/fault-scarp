@@ -6,16 +6,16 @@ handles = guihandles(hObject);
 data = guidata(hObject);
 
 %get file name
-fn = uigetfile({'*.*'});
+[filename, pathname] = uigetfile({'*.*'}, 'File Selector');
 %fn = 'fakedata.txt';
 
 %if filename is successfully chose, read data in
-if(fn)
+if(filename)
 
-    data.input_filename = fn;
+    data.input_path = [pathname, filename];
 
     %attempt to read the file
-    input_data = dlmread(fn);
+    input_data = dlmread(data.input_path);
 
     %assign the first column to x and the second to y
     x = input_data(:,1);
