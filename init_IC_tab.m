@@ -1,4 +1,4 @@
-function initialize_IC_tab(tabgroup)
+function data = initialize_IC_tab(tabgroup, data)
 
 %CONSTRUCT IC TAB
 IC_tab = uitab('Parent', tabgroup,...,

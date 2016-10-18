@@ -12,7 +12,7 @@ if(data.table_edited)
 
     %revert save button and associated data
     data.table_edited = false;
-    handles.control_button_save.ForegroundColor = [0.5 0.5 0.5];
+    handles.control_button_save.ForegroundColor = [0.5, 0.5, 0.5];
 
     guidata(hObject, data);
 

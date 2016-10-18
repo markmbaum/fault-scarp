@@ -38,6 +38,10 @@ if(filename)
     %make run button available
     handles.run_button.ForegroundColor = [0 0 0];
 
+    %revert save button and associated data
+    data.table_edited = false;
+    handles.control_button_save.ForegroundColor = [0.5 0.5 0.5];
+
     %store variables in GUI structure
     guidata(hObject, data);
 end

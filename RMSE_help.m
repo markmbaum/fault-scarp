@@ -1,7 +1,7 @@
 function RMSE_help(hObject, ~)
 
 sz = get(groot, 'Screensize');
-pos = [1 1 max([700, sz(3)/2]) sz(4)];
+pos = [sz(4)*0.05 sz(4)*0.05 max([700, sz(3)/2]) sz(4)*0.85];
 
 help_fig = figure('name', 'RMSE Explanation',...
     'Position', pos,...

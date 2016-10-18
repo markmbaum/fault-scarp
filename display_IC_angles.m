@@ -10,18 +10,22 @@ end
 %get drag point coordinates
 [x, y] = get_drag_pt_coords(data);
 
-%set x tick locations
+%set tick locations and labels
 x_tick = sort(unique(x));
-y_tick = sort(unique(y));
-for i = 1:length(x_tick)
-    x_tick(i) = round(x_tick(i), 2);
+if(~isempty(x_tick))
+    for i = 1:length(x_tick)
+        x_tick(i) = round(x_tick(i), 2);
 
+    end
+    handles.IC_ax.XTick = x_tick;
 end
-for i = 1:length(y_tick)
-    y_tick(i) = round(y_tick(i), 2);
+y_tick = sort(unique(y));
+if(~isempty(y_tick))
+    for i = 1:length(y_tick)
+        y_tick(i) = round(y_tick(i), 2);
+    end
+    handles.IC_ax.YTick = y_tick;
 end
-handles.IC_ax.XTick = x_tick;
-handles.IC_ax.YTick = y_tick;
 
 %get y location
 yloc = max(handles.IC_ax.YLim);

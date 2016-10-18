@@ -24,10 +24,13 @@ fig = figure('name',...
 
 %init guidata
 data = guidata(fig);
+
+data.fontsize_adjustment = 0;
+
 data.fig = fig;
 data.input_path = '';
 data.inactive_IC_color = [0, 0.4470, 0.7410];
-data.active_IC_color = [0.8500, 0.3250,0.0980];
+data.active_IC_color = [0.8500, 0.3250, 0.0980];
 data.IC_point_size = 50;
 data.table_edited = false;
 data.drag_pts = cell(1,4);
@@ -44,9 +47,9 @@ data.RMSE = [];
 tabgroup = uitabgroup('Parent', fig, 'Tag', 'tabgroup');
 
 %place the ui objects in each tab
-init_control_tab(tabgroup);
-init_IC_tab(tabgroup);
-init_results_tab(tabgroup);
+data = init_control_tab(tabgroup, data);
+data = init_IC_tab(tabgroup, data);
+data = init_results_tab(tabgroup, data);
 
 guidata(fig, data);
 

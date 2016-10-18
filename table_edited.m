@@ -7,7 +7,7 @@ if(~data.table_edited)
 
     %GUIdata updates
     data.table_edited = true;
-    handles.control_button_save.ForegroundColor = [0 0 0];
+    handles.control_button_save.ForegroundColor = [0, 0, 0];
 
     %store updates
     guidata(hObject, data);
