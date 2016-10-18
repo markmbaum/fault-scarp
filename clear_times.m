@@ -1,4 +1,5 @@
 function clear_times(hObject, ~)
+%clear the solution time text boxes of input
 
 handles = guihandles(hObject);
 

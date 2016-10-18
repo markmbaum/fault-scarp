@@ -1,4 +1,5 @@
 function delete_IC_point(hObject, ~)
+%remove a draggable IC point from the IC axes
 
 handles = guihandles(hObject);
 data = guidata(hObject);

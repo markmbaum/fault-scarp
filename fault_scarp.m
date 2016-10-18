@@ -1,6 +1,5 @@
 function fault_scarp
-%UNTITLED2 Summary of this function goes here
-%   Detailed explanation goes here
+%main function opening the fault scarp GUI
 
 %check screen size to make sure the figure isn't opened larger than it
 fig_pos = [1, 1, 1250, 750];
@@ -24,9 +23,9 @@ fig = figure('name',...
 
 %init guidata
 data = guidata(fig);
-
+%%%% FONTSIZE ADJUSTMENT %%%%
 data.fontsize_adjustment = 0;
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 data.fig = fig;
 data.input_path = '';
 data.inactive_IC_color = [0, 0.4470, 0.7410];
@@ -42,6 +41,7 @@ data.min_rmse_color = [0 0.5 0];
 data.solutions = [];
 data.solution_x = [];
 data.RMSE = [];
+data.results_saved = true;
 
 %create tabs/panels in the GUI
 tabgroup = uitabgroup('Parent', fig, 'Tag', 'tabgroup');

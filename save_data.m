@@ -14,6 +14,9 @@ if(data.table_edited)
     data.table_edited = false;
     handles.control_button_save.ForegroundColor = [0.5, 0.5, 0.5];
 
+    %toggle results saved variable
+    data.results_saved = true;
+
     guidata(hObject, data);
 
 end

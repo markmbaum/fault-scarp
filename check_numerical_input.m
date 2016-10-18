@@ -1,4 +1,6 @@
 function check_numerical_input(hObject, ~)
+%check that input to numerical text box fields is acceptable
+% and provide easter eggs
 
 s = lower(hObject.String);
 

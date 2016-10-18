@@ -1,4 +1,5 @@
 function data = display_IC_angles(handles, data)
+%write the angles of each IC segment and update axes ticks and ticklabels
 
 %delete previous angles, if any
 for i = 1:length(data.angles)

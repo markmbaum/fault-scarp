@@ -84,6 +84,9 @@ if(~error_flag)
   data.solutions = sol';
   data.solution_x = x_sol;
 
+  %toggle saved status
+  data.results_saved = false;
+
   %store data
   guidata(hObject, data);
 

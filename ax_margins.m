@@ -1,4 +1,5 @@
 function ax_margins(ax, x, y)
+%adjust the limits of an axis to add 2.5 percent margins
 
 xmin = min(x);
 xmax = max(x);

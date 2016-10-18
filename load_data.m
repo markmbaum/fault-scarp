@@ -1,6 +1,4 @@
 function load_data(hObject, ~)
-%UNTITLED Summary of this function goes here
-%   Detailed explanation goes here
 
 handles = guihandles(hObject);
 data = guidata(hObject);

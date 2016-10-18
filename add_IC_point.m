@@ -1,4 +1,5 @@
 function add_IC_point(hObject, ~)
+%Add a draggable initial condition to the IC axes upon button click
 
 handles = guihandles(hObject);
 data = guidata(hObject);
