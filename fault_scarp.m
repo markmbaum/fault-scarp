@@ -18,7 +18,6 @@ fig = figure('name',...
     'ToolBar', 'none',... %remove icon based lower toolbar
     'Resize', 'off',...
     'Position', fig_pos,... %figure size in pixels
-    'DeleteFcn', @close_gui,... %function called upon figure close
     'Tag', 'main_window');
 
 %init guidata
