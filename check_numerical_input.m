@@ -9,12 +9,12 @@ if(~isempty(s) && isnan(str2double(s)))
     %easter eggs
     if(strcmp(s, 'hanlon'))
         figure;
-        img = load('i1.mat');
+        img = load('img/i1.mat');
         image(img.i);
         axis equal;
     elseif(strcmp(s, 'dade'))
         figure;
-        img = load('i2.mat');
+        img = load('img/i2.mat');
         image(img.i);
         axis equal;
     else
