@@ -1,4 +1,4 @@
-# fault-scarp.m
+# fault-scarp
 
 This repository contains MATLAB code that generates a GUI tool for estimating the age of a fault scarp using the measured profile of the scarp. The program solves the diffusion equation to approximate scarp erosion over time. The initial condition is an educated guess of the scarp's initial profile (its shape just after the fault slipped) and the boundary conditions assume the slopes of the land surfaces far away from the scarp are constant. By comparing the solutions for different elapsed times to the measured profile, the age of the scarp can be guessed. Solutions that closely match the measured profile represent good guesses of the scarp's age.
 
