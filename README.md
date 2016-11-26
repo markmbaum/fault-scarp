@@ -7,8 +7,9 @@ First, the scarp profile is loaded into the program from a delimited file, where
 ![control-panel](img/control-panel.png)
 
 After providing the control panel information, the user sets an initial scarp profile in the next panel by dragging around line elements in a plot. This initial profile, which represents the initial conditions when solving the diffusion-erosion equation, is guessed and not directly measured. The guess is informed by the fact that normal fault planes tend to dip about 60 degrees and by measurements of the slope of the land surface far away from the scarp. The user sets the initial profile so that
-* the line segment representing the scarp is at a 60 degree angle
+* the slope of the line segment representing the scarp is about 60 degrees
 * line segments on either side of the scarp have the same slope as the land surfaces far away from the scarp
+
 The second panel (initial conditions panel) is shown below with an initial scarp profile already set.
 
 ![IC-panel](img/IC-panel.png)
